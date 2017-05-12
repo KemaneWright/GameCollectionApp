@@ -11,5 +11,16 @@ module.exports = {
         res.send(result)
       }
     });
+  },
+  getGameDetails: function(req, res) {
+    var id = req.params.id
+    db.games.get_game_details([id], function(err, result) {
+      if (err) {
+        return res.status(500).send(err)
+      }
+      else {
+        return res.send(result)
+      }
+    });
   }
 }

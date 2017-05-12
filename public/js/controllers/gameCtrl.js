@@ -7,4 +7,14 @@ $scope.getAllGames = function() {
 }
 $scope.getAllGames();
 
+  gameService.getDetails($stateParams.id).then(function(response){
+    $scope.game = response[0];
+    console.log('yo', response[0])
+  })
+
+
+
+
+
+
 })

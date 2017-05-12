@@ -41,6 +41,7 @@ var gameCtrl = require('./controllers/gameCtrl');
 
 //////// Game endpoints /////////
 app.get('/api/games', gameCtrl.getAllGames);
+app.get('/api/games/:id', gameCtrl.getGameDetails);
 
 
 

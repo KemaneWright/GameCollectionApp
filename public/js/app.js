@@ -13,6 +13,21 @@ angular.module('gameCollection', ['ui.router']).config(function($stateProvider, 
       url: '/login',
       templateUrl: './views/login.html'
     })
+    .state('details', {
+            url: '/details/:id',
+            templateUrl: '/views/gameDetails.html',
+            controller: 'gameCtrl'
+        })
+
+
+
+
+
+
+
+
+
+
     $urlRouterProvider
       .otherwise('/friends');
 })
