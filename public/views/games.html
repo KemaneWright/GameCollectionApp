@@ -1,4 +1,14 @@
 <div class="gamesPage container">
+  <div class="addGame">
+    <form>
+      <input type="text" name="" value="" placeholder="Game Image">
+      <input type="text" name="" value="" placeholder="Game Title">
+      <input type="text" name="" value="" placeholder="Genre">
+      <input type="text" name="" value="" placeholder="Year released">
+      <input type="text" name="" value="" placeholder="Game Summary">
+      <button class="btn btn-primary" type="button" name="button" ng-click="addGame()">Add Game</button>
+    </form>
+  </div>
     <div class="game-box col-md-3" ng-repeat="game in games">
       <a ui-sref="details({id: '{{game.id}}'})">
         <img class="game-img" src="{{game.img}}" alt="">

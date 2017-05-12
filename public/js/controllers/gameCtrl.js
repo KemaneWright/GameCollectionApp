@@ -12,7 +12,9 @@ $scope.getAllGames();
     console.log('yo', response[0])
   })
 
-
+$scope.addGame = function() {
+  console.log('new game')
+}
 
 
 
