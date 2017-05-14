@@ -6,6 +6,7 @@
   border: 1px solid black;
   padding: 2%;
   width: 28%;
+  height: 530px;
 }
 .game-box>a {
   color: black;
@@ -28,4 +29,49 @@
 }
 .detailContent {
   text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/************* ADD GAME *************/
+.addGame {
+  margin: 0 auto;
+  width: 50%;
+  padding-left: 15%;
+}
+.gameInputs {
+  margin-top: 15px;
+}
+.marg-top {
+  margin-top: 15px;
 }

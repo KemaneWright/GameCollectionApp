@@ -17,10 +17,12 @@
   },
   "homepage": "https://github.com/KemaneWright/GameCollectionApp#readme",
   "dependencies": {
+    "angular-file-upload": "^2.5.0",
     "body-parser": "^1.17.1",
     "cors": "^2.8.3",
     "express": "^4.15.2",
     "express-session": "^1.15.2",
-    "massive": "^2.6.0"
+    "massive": "^2.6.0",
+    "multer": "^1.3.0"
   }
 }

@@ -1,17 +1,14 @@
 angular.module('gameCollection', ['ui.router']).config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-    .state('friends', {
-      url: '/friends',
-      templateUrl: './views/friends.html'
+    .state('addGame', {
+      url: '/addGame',
+      templateUrl: './views/addGame.html',
+      controller: 'gameCtrl'
     })
     .state('games', {
       url: '/games',
       templateUrl: './views/games.html',
       controller: 'gameCtrl'
-    })
-    .state('login', {
-      url: '/login',
-      templateUrl: './views/login.html'
     })
     .state('details', {
             url: '/details/:id',
@@ -29,5 +26,5 @@ angular.module('gameCollection', ['ui.router']).config(function($stateProvider, 
 
 
     $urlRouterProvider
-      .otherwise('/friends');
+      .otherwise('/games');
 })

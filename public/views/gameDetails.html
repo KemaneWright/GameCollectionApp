@@ -7,6 +7,15 @@
             <p>Year released: <b>{{game.datereleased}}</b></p>
             <button ui-sref="games" type="button" class="btn btn-info" name="button">Back</button>
             <p>{{game.summary}}</p>
+            <button type="button" class="btn btn-success" ng-click="like(game.id)" name="button">Like: {{game.likes}}</button>
+            <button type="button" class="btn btn-warning" ng-click="dislike(game.id)" name="button">Dislike: {{game.dislikes}}</button>
+            <section class="marg-top">
+              <button class="btn btn-danger" type="button" name="button" ng-click="removeGame(game.id)">Remove Game</button>
+            </section>
+
+            <div class="comments">
+              <h4>Comments</h4>
+            </div>
         </div>
     </div>
 

@@ -1,15 +1,12 @@
 create table if not exists games (
   id serial primary key NOT NULL,
-  img varchar(50) NOT NULL,
+  img text NOT NULL,
   title text NOT NULL,
   genre text NOT NULL,
   dateReleased text NOT NULL,
-  summary text NOT NULL
-);
-create table if not exists users (
-  user_id serial primary key NOT NULL,
-  name text,
-  email text unique
+  summary text NOT NULL,
+  likes integer DEFAULT 0,
+  dislikes integer DEFAULT 0
 );
 
 

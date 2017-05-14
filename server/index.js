@@ -7,7 +7,6 @@ var config = require('./config');
 
 
 
-
 var app = module.exports = express();
 app.use(cors());
 app.use(bodyParser.json());
@@ -37,14 +36,16 @@ var gameCtrl = require('./controllers/gameCtrl');
 
 
 
-
-
 //////// Game endpoints /////////
 app.get('/api/games', gameCtrl.getAllGames);
 app.get('/api/games/:id', gameCtrl.getGameDetails);
 
+app.put('/api/games/like/:id', gameCtrl.like);
+app.put('/api/games/dislike/:id', gameCtrl.dislike);
 
+app.post('/api/games', gameCtrl.addGame);
 
+app.delete('/api/games/delete/:id', gameCtrl.removeGame)
 
 
 

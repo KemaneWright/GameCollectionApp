@@ -1,1 +1,1 @@
-select * from games
+select * from games order by title
