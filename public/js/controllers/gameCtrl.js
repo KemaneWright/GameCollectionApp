@@ -9,9 +9,40 @@ angular.module('gameCollection').controller('gameCtrl', function($scope, $stateP
     $scope.getAllGames();
 
 
+    function FBfun() {
+        setTimeout(function() { // I'm executing this just slightly after step 2 completes
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId: '313285279091908',
+                    xfbml: true,
+                    version: 'v2.9'
+                });
+            };
+
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+            FB.XFBML.parse(); // This is key for all this to work!
+        }, 100);
+    }
+    FBfun()
+
+
 
     gameService.getDetails($stateParams.id).then(function(response) {
         $scope.game = response[0];
+        // console.log('state', $state)
+        // console.log('state', $stateParams)
+        $scope.stateToPost = "http://localhost:2469/#!/" + $state.current.name + "/" + $stateParams.id
+        console.log($scope.stateToPost)
         // console.log('yo', $scope.game)
     })
 
@@ -48,7 +79,7 @@ angular.module('gameCollection').controller('gameCtrl', function($scope, $stateP
             // console.log('game', game)
             $scope.getAllGames();
             if ($state.current.name === 'details') {
-              $scope.refresh()
+                $scope.refresh()
             }
         })
     }
@@ -58,7 +89,7 @@ angular.module('gameCollection').controller('gameCtrl', function($scope, $stateP
             // console.log('game', game)
             $scope.getAllGames();
             if ($state.current.name === 'details') {
-              $scope.refresh()
+                $scope.refresh()
             }
         })
     }
