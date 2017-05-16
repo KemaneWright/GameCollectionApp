@@ -3,7 +3,8 @@ var db = app.get('db');
 
 module.exports = {
     getAllGames: function(req, res) {
-        db.games.get_all_games([], function(err, result) {
+      // console.log('req user get games ', req.user)
+        db.games.get_all_games([req.user.user_id], function(err, result) {
             if (err) {
                 return res.status(500).send(err)
             } else {
@@ -24,8 +25,9 @@ module.exports = {
     addGame: function(req, res) {
         console.log('add game server func');
         var game = req.body
+        console.log('req user ', req.user);
         console.log('server game', game)
-        db.games.add_game([game.image, game.title, game.genre, game.released, game.summary], function(err, game) {
+        db.games.add_game([game.image, game.title, game.genre, game.released, game.summary, req.user.user_id], function(err, game) {
             if (err) {
                 return res.status(500).send(err)
             } else {

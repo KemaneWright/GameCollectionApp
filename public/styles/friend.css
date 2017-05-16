@@ -1,0 +1,15 @@
+.friendImg {
+  height: 100px;
+}
+.friendPage {
+  overflow: auto;
+  width: 80%;
+  margin: 30px auto;
+}
+.friendName {
+  font-size: 25px;
+  vertical-align: bottom;
+}
+.friendDiv {
+  margin: 1% 0;
+}

@@ -60,7 +60,9 @@ angular.module('gameCollection').controller('gameCtrl', function($scope, $stateP
 
         $scope.game.push($scope.image, $scope.title, $scope.genre, $scope.released, $scope.summary)
         console.log('new game', game)
-        gameService.addGame(game)
+        gameService.addGame(game).then(function() {
+          $state.go('games');
+        })
     }
 
 

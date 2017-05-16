@@ -32,10 +32,17 @@
 }
 
 
-
-
-
-
+form {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+.loginAcct {
+  text-align: center;
+}
+input {
+  margin: 1%;
+}
 
 
 

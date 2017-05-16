@@ -1,0 +1,21 @@
+<h1 class="loginAcct">Returning users please login</h1>
+<br>
+<form ng-submit="login(user)">
+  Email: <input type="email" ng-model="user.email" required/>
+  <br>
+  Password: <input type="password" ng-model="user.password" required/>
+  <br>
+  <button type="submit">login</button>
+</form>
+<br><br><br>
+<h1 class="loginAcct">New users please sign up</h1>
+
+<form ng-submit="register(newUser)">
+  Name: <input type="text" ng-model="newUser.name" required/>
+  <br>
+  Email: <input type="email" ng-model="newUser.email" required/>
+  <br>
+  Password: <input type="password" ng-model="newUser.password" required/>
+  <br>
+  <button type="submit">Register</button>
+</form>

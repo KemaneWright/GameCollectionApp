@@ -6,9 +6,15 @@ create table if not exists games (
   dateReleased text NOT NULL,
   summary text NOT NULL,
   likes integer DEFAULT 0,
-  dislikes integer DEFAULT 0
+  dislikes integer DEFAULT 0,
+  user_id integer
 );
-
+create table if not exists users (
+  user_id SERIAL PRIMARY KEY,
+  name varchar(255),
+  email varchar(255) UNIQUE,
+  password varchar(255)
+);
 
 -- insert into games(img, title, genre, dateReleased, summary)
 --   values
