@@ -38,15 +38,15 @@ angular.module('gameCollection').controller('gameCtrl', function($scope, $stateP
     gameService.getDetails($stateParams.id).then(function(response) {
         $scope.game = response[0];
         $scope.stateToPost = "http://localhost:2469/#!/" + $state.current.name + "/" + $stateParams.id
-        console.log($scope.stateToPost)
+        // console.log($scope.stateToPost)
     })
 
     $scope.addGame = function() {
-        console.log('Creating new game')
+        // console.log('Creating new game')
         var game = $scope.game = [];
 
         $scope.game.push($scope.image, $scope.title, $scope.genre, $scope.released, $scope.summary)
-        console.log('new game', game)
+        // console.log('new game', game)
         gameService.addGame(game).then(function() {
             $state.go('games');
         })

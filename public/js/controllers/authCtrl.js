@@ -5,7 +5,7 @@ angular.module('gameCollection').controller('authCtrl', function(authService, $s
   }
 
   $scope.login = function(user) {
-    console.log('user ', user);
+    // console.log('user ', user);
     authService.login(user).then(function(response) {
       if (!response.data) {
         alert('User does not exist');

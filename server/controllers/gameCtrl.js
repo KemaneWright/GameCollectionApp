@@ -23,16 +23,16 @@ module.exports = {
         });
     },
     addGame: function(req, res) {
-        console.log('add game server func');
+        // console.log('add game server func');
         var game = req.body
-        console.log('req user ', req.user);
-        console.log('server game', game)
+        // console.log('req user ', req.user);
+        // console.log('server game', game)
         db.games.add_game([game.image, game.title, game.genre, game.released, game.summary, req.user.user_id], function(err, game) {
             if (err) {
                 return res.status(500).send(err)
             } else {
                 res.send(game)
-                console.log('new game in database');
+                // console.log('new game in database');
             }
         })
     },

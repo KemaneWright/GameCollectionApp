@@ -42,7 +42,7 @@ angular.module('gameCollection').controller('friendCtrl', function($scope, $stat
     gameService.getDetails($stateParams.id).then(function(response) {
         $scope.game = response[0];
         $scope.stateToPost = "http://localhost:2469/#!/" + $state.current.name + "/" + $stateParams.id
-        console.log($scope.stateToPost)
+        // console.log($scope.stateToPost)
     })
 
     $scope.refresh = function() {
@@ -55,7 +55,7 @@ angular.module('gameCollection').controller('friendCtrl', function($scope, $stat
         gameService.getDetails($stateParams.id).then(function(response) {
             $scope.game = response[0];
             $scope.stateToPost = "http://localhost:2469/#!/" + $state.current.name + "/" + $stateParams.id
-            console.log($scope.stateToPost)
+            // console.log($scope.stateToPost)
         })
     }
 

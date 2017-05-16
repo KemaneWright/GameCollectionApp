@@ -26,7 +26,7 @@ module.exports = {
 		db.users.insert([user.name, user.email, user.password], function(err, user) {
 			// If err, send err
 			if (err) {
-				console.log('Registration error: ', err);
+				// console.log('Registration error: ', err);
 
 				return res.status(500)
 					.send(err);
@@ -47,13 +47,13 @@ module.exports = {
 	},
 
 	updateCurrent: function(req, res, next) {
-		console.log('Starting update');
+		// console.log('Starting update');
 
 		var updateUser = req.body;
 		updateUser.user_id = req.user.user_id;
 		db.users.save(updateUser, function(err, user) {
 			if (err) {
-				console.log('User update error', err);
+				// console.log('User update error', err);
 
 				return res.status(401)
 					.send(err);

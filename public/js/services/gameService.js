@@ -26,7 +26,7 @@ angular.module('gameCollection').service('gameService', function($http) {
                 summary: game[4]
             }
         })
-        console.log('data', data)
+        // console.log('data', data)
     }
 
     this.removeGame = function(id) {
