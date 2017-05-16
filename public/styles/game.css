@@ -43,41 +43,29 @@ form {
 input {
   margin: 1%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.likes {
+  background-color: #5CB85C;
+  width: 50%;
+}
+.dislikes {
+  background-color: #F0AD4E;
+  width: 50%;
+}
+.gameSummary {
+  min-height: 200px;
+}
 
 
 /************* ADD GAME *************/
 .addGame {
   margin: 0 auto;
   width: 50%;
-  padding-left: 15%;
 }
 .gameInputs {
   margin-top: 15px;
+}
+.gameInputs > input {
+  width: 75%;
 }
 .marg-top {
   margin-top: 15px;

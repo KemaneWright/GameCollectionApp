@@ -1,0 +1,16 @@
+<div class="">
+    <h1>I'm {{friend.name}} and these are my games</h1>
+    <button ui-sref="friends" type="button" class="btn btn-info" name="button">Back To Friends</button>
+    <div class="gamesPage container">
+        <div class="game-box col-md-3" ng-repeat="game in friendsGames | searchFilter: searchGames">
+            <a ui-sref="friendGame({id: '{{game.id}}'})">
+                <img class="game-img" src="{{game.img}}" alt="">
+                <h2>{{game.title}}</h2>
+                <p>Genre: {{game.genre}}</p>
+                <p>Year released: {{game.datereleased}}</p>
+            </a>
+            <button type="button" class="btn btn-success" ng-click="like(game.id)" name="button">Like: {{game.likes}}</button>
+            <button type="button" class="btn btn-warning" ng-click="dislike(game.id)" name="button">Dislike: {{game.dislikes}}</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="container gameDetailPage">
+    <div class="gameDetailBox">
+        <img class="game-detail-img" src="{{game.img}}" alt="">
+        <div class="detailContent">
+            <h2>{{game.title}}</h2>
+            <p>Genre: <b>{{game.genre}}</b></p>
+            <p>Year released: <b>{{game.datereleased}}</b></p>
+            <p class="gameSummary">{{game.summary}}</p>
+            <button type="button" class="btn btn-success" ng-click="like(game.id)" name="button">Like: {{game.likes}}</button>
+            <button type="button" class="btn btn-warning" ng-click="dislike(game.id)" name="button">Dislike: {{game.dislikes}}</button>
+            <div class="comments">
+                <h4>Comments</h4>
+                <div class="fb-comments" data-href="{{stateToPost}}" data-numposts="5"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,10 +4,10 @@ angular.module('gameCollection').controller('gameCtrl', function($scope, $stateP
     $scope.getAllGames = function() {
         gameService.getAllGames().then(function(res) {
             $scope.games = res.data
+            // console.log('games', $scope.games)
         })
     }
     $scope.getAllGames();
-
 
     function FBfun() {
         setTimeout(function() { // I'm executing this just slightly after step 2 completes
@@ -35,24 +35,11 @@ angular.module('gameCollection').controller('gameCtrl', function($scope, $stateP
     }
     FBfun()
 
-
-
     gameService.getDetails($stateParams.id).then(function(response) {
         $scope.game = response[0];
-        // console.log('state', $state)
-        // console.log('state', $stateParams)
         $scope.stateToPost = "http://localhost:2469/#!/" + $state.current.name + "/" + $stateParams.id
         console.log($scope.stateToPost)
-        // console.log('yo', $scope.game)
     })
-
-    $scope.refresh = function() {
-        gameService.getDetails($stateParams.id).then(function(response) {
-            $scope.game = response[0];
-            // console.log('yo', $scope.game)
-        })
-    }
-
 
     $scope.addGame = function() {
         console.log('Creating new game')
@@ -61,41 +48,35 @@ angular.module('gameCollection').controller('gameCtrl', function($scope, $stateP
         $scope.game.push($scope.image, $scope.title, $scope.genre, $scope.released, $scope.summary)
         console.log('new game', game)
         gameService.addGame(game).then(function() {
-          $state.go('games');
-        })
-    }
-
-
-    $scope.removeGame = function(id) {
-        console.log('Removing game');
-        gameService.removeGame(id).then(function(response) {
-            console.log(response)
             $state.go('games');
         })
     }
 
-
-    $scope.like = function(id) {
-        gameService.like(id).then(function(response) {
-            var game = response.data[0]
-            // console.log('game', game)
-            $scope.getAllGames();
-            if ($state.current.name === 'details') {
-                $scope.refresh()
-            }
+    $scope.removeGame = function(id) {
+        gameService.removeGame(id).then(function(response) {
+            alert(response.data)
+            $state.go('games');
         })
     }
-    $scope.dislike = function(id) {
-        gameService.dislike(id).then(function(response) {
-            var game = response.data[0]
-            // console.log('game', game)
-            $scope.getAllGames();
-            if ($state.current.name === 'details') {
-                $scope.refresh()
-            }
-        })
+})
+
+angular.module('gameCollection').filter('searchFilter', function() {
+  return function(arr, searchGames) {
+
+    if (!searchGames) {
+      return arr;
     }
 
+    searchGames = searchGames.toLowerCase();
 
+    var result = [];
 
+    angular.forEach(arr, function(el) {
+      if (el.title.toLowerCase().indexOf(searchGames) != -1) {
+        result.push(el);
+      }
+    });
+
+    return result;
+  };
 })

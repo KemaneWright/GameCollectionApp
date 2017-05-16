@@ -49,5 +49,11 @@ angular.module('gameCollection').service('gameService', function($http) {
       })
     }
 
+    this.searchGames = function() {
+      return $http({
+        method: 'GET',
+        url: '/api/games'
+      })
+    }
 
 })

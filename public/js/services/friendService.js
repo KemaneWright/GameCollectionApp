@@ -1,10 +1,18 @@
 angular.module('gameCollection').service('friendService', function($http) {
 
-  this.getFriends = function() {
-      return $http.get('/api/friends')
-  }
+    this.getFriends = function() {
+        return $http.get('/api/friends')
+    }
 
-
+    this.getFriendProfile = function(id) {
+        return $http({
+            method: 'GET',
+            url: "/api/friends/" + id
+        }).then(function(response) {
+            // console.log('service', response);
+            return response.data;
+        })
+    }
 
 
 

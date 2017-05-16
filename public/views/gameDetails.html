@@ -3,12 +3,12 @@
         <img class="game-detail-img" src="{{game.img}}" alt="">
         <div class="detailContent">
             <h2>{{game.title}}</h2>
-            <p>Genre: <b>{{game.genre}}</b></p>
-            <p>Year released: <b>{{game.datereleased}}</b></p>
+            <p><b>Genre:</b> {{game.genre}}</p>
+            <p><b>Year released:</b> {{game.datereleased}}</p>
             <button ui-sref="games" type="button" class="btn btn-info" name="button">Back</button>
-            <p>{{game.summary}}</p>
-            <button type="button" class="btn btn-success" ng-click="like(game.id)" name="button">Like: {{game.likes}}</button>
-            <button type="button" class="btn btn-warning" ng-click="dislike(game.id)" name="button">Dislike: {{game.dislikes}}</button>
+            <p class="gameSummary">{{game.summary}}</p>
+            <h4 class="likes" style="width: 25%; padding: 1%">Likes: {{game.likes}}</h4>
+            <h4 class="dislikes" style="width: 25%; padding: 1%">Dislikes: {{game.dislikes}}</h4>
             <section class="marg-top">
               <button class="btn btn-danger" type="button" name="button" ng-click="removeGame(game.id)">Remove Game</button>
             </section>

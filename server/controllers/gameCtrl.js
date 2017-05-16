@@ -47,7 +47,9 @@ module.exports = {
 
     like: function(req, res) {
       var id = req.params.id
+      // console.log('req', req.body)
       db.games.like([id], function(err, response) {
+        // console.log(req.user)
         // console.log('server ', response)
         return res.status(200).send(response);
       })
@@ -58,9 +60,13 @@ module.exports = {
         // console.log('server ', response)
         return res.status(200).send(response);
       })
+    },
+
+    searchGames: function(req, res) {
+      var title = req.body
+      console.log('req ', req.body)
+      // db.games.search_game([])
     }
-
-
 
 
 

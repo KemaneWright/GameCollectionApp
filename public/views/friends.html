@@ -1,6 +1,6 @@
 <div class="friendPage">
     <div class="col-md-4 friendDiv" ng-repeat="friend in friends">
-      <a ui-sref="details({id: '{{game.id}}'})">
+      <a ui-sref="friendProfile({id: '{{friend.user_id}}'})">
         <img class="friendImg" src="https://legendary-digital-network-assets.s3.amazonaws.com/5d4560fe-719d-45b9-bdf2-49de3fa29529__IMG_0809.JPG" alt="">
         <span class="friendName">{{friend.name}}</span>
       </a>

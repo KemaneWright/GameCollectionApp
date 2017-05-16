@@ -13,3 +13,7 @@
 .friendDiv {
   margin: 1% 0;
 }
+.friendDiv > a {
+  color: black;
+  text-decoration: none;
+}
