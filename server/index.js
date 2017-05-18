@@ -66,10 +66,10 @@ app.put('/api/user/current', isAuthed, authCtrl.updateCurrent);
 
 
 //////// Game endpoints /////////
-app.get('/api/games', gameCtrl.getAllGames);
+app.get('/api/games', gameCtrl.searchGames);
 app.get('/api/games/:id', gameCtrl.getGameDetails);
 
-app.post('/api/gamez', gameCtrl.searchGames);
+app.get('/api/gamez', gameCtrl.searchGames);
 
 app.put('/api/games/like/:id', gameCtrl.like);
 app.put('/api/games/dislike/:id', gameCtrl.dislike);

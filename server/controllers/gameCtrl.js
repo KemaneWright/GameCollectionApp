@@ -31,15 +31,12 @@ module.exports = {
             }
         })
     },
-
     removeGame: function(req, res) {
         var id = req.params.id
         db.games.remove_game([id], function(err, response) {
             return res.status(200).send('Game deleted');
         })
     },
-
-
     like: function(req, res) {
         var id = req.params.id
         db.games.like([id], function(err, response) {
@@ -52,91 +49,49 @@ module.exports = {
             return res.status(200).send(response);
         })
     },
-
-    // searchGames: function(req, res) {
-    //     console.log('res ', req.body)
-    //     if (req.body.searchFilter.genre) {
-    //       db.games.get_games_genre([req.body.searchFilter.genre, req.user.user_id], function(err, result) {
-    //           if (err) {
-    //             console.log('err ', err)
-    //               return res.status(500).send(err)
-    //           } else {
-    //               console.log('result', result)
-    //               res.json(result)
-    //           }
-    //       })
-    //     } else if (req.body.searchFilter.title) {
-    //       db.games.get_games_title([req.body.searchFilter.title, req.user.user_id], function(err, result) {
-    //           if (err) {
-    //             console.log('err ', err)
-    //               return res.status(500).send(err)
-    //           } else {
-    //               console.log('result', result)
-    //               res.json(result)
-    //           }
-    //       })
-    //     } else if (req.body.searchFilter.dateReleased) {
-    //       db.games.get_games_dateReleased([req.body.searchFilter.dateReleased, req.user.user_id], function(err, result) {
-    //           if (err) {
-    //             console.log('err ', err)
-    //               return res.status(500).send(err)
-    //           } else {
-    //               console.log('result', result)
-    //               res.json(result)
-    //           }
-    //       })
-    //     }
-    //     else if (req.body.searchFilter.likes) {
-    //       db.games.get_games_likes([req.body.searchFilter.likes, req.user.user_id], function(err, result) {
-    //           if (err) {
-    //             console.log('err ', err)
-    //               return res.status(500).send(err)
-    //           } else {
-    //               console.log('result', result)
-    //               res.json(result)
-    //           }
-    //       })
-    //     }
-    // }
-
     searchGames: function(req, res) {
         if (req.query.genre) {
-            db.games.get_games_genre([req.query.genre, 2], function(err, result) {
+            db.games.get_games_genre([req.query.genre, req.user.user_id], function(err, result) {
                 if (err) {
                     console.log('err ', err)
                     return res.status(500).send(err)
                 } else {
-                    console.log('result', result)
                     res.json(result)
                 }
             })
         } else if (req.query.title) {
-            db.games.get_games_title([req.query.title, 2], function(err, result) {
+            db.games.get_games_title([req.query.title, req.user.user_id], function(err, result) {
                 if (err) {
                     console.log('err ', err)
                     return res.status(500).send(err)
                 } else {
-                    console.log('result', result)
                     res.json(result)
                 }
             })
         } else if (req.query.dateReleased) {
-            db.games.get_games_dateReleased([req.query.dateReleased, 2], function(err, result) {
+            db.games.get_games_dateReleased([req.query.dateReleased, req.user.user_id], function(err, result) {
                 if (err) {
                     console.log('err ', err)
                     return res.status(500).send(err)
                 } else {
-                    console.log('result', result)
                     res.json(result)
                 }
             })
         } else if (req.query.likes) {
-            db.games.get_games_likes([req.query.likes, 2], function(err, result) {
+            db.games.get_games_likes([req.query.likes, req.user.user_id], function(err, result) {
                 if (err) {
                     console.log('err ', err)
                     return res.status(500).send(err)
                 } else {
-                    console.log('result', result)
+                    res.json(result)
+                }
+            })
+        } else {
+            db.games.get_all_games([req.user.user_id], function(err, result) {
+                if (err) {
+                    console.log('err ', err)
+                    return res.status(500).send(err)
+                } else {
                     res.json(result)
                 }
             })

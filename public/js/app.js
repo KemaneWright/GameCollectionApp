@@ -33,7 +33,7 @@ angular.module('gameCollection', ['ui.router']).config(function($stateProvider, 
         .state('details', {
             url: '/details/:id',
             templateUrl: '/views/gameDetails.html',
-            controller: 'gameCtrl',
+            controller: 'detailsCtrl',
             resolve: {
                 user: function(authService, $state) {
                     return authService.getCurrentUser()
@@ -93,7 +93,7 @@ angular.module('gameCollection', ['ui.router']).config(function($stateProvider, 
         .state('friendProfile', {
             url: '/friends/:id',
             templateUrl: '/views/friendProfile.html',
-            controller: 'friendCtrl',
+            controller: 'detailsCtrl',
             resolve: {
                 user: function(authService, $state) {
                     return authService.getCurrentUser()
@@ -112,7 +112,7 @@ angular.module('gameCollection', ['ui.router']).config(function($stateProvider, 
         .state('friendGame', {
             url: '/details/:id',
             templateUrl: '/views/friendGame.html',
-            controller: 'friendCtrl',
+            controller: 'detailsCtrl',
             resolve: {
                 user: function(authService, $state) {
                     return authService.getCurrentUser()

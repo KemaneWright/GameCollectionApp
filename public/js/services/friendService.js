@@ -9,7 +9,6 @@ angular.module('gameCollection').service('friendService', function($http) {
             method: 'GET',
             url: "/api/friends/" + id
         }).then(function(response) {
-            // console.log('service', response);
             return response.data;
         })
     }

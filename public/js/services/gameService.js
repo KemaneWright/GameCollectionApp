@@ -52,15 +52,13 @@ angular.module('gameCollection').service('gameService', function($http) {
     }
 
     this.searchGames = function(searchFilter) {
-      console.log('filter ', searchFilter)
       return $http({
-        method: 'POST',
-        url: '/api/gamez',
+        method: 'GET',
+        url: '/api/gamez?' + searchFilter,
         data: {
           searchFilter
         }
       }).then(function(response) {
-        console.log('resp ', response)
         return response;
       });
     }

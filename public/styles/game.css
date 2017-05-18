@@ -2,14 +2,14 @@
   overflow: auto;
 }
 .gameSearch {
-  margin-bottom: 10%;
+  margin-bottom: 3%;
 }
 .game-box {
   margin: 2% 2% 2% 3%;
   border: 1px solid black;
   padding: 2%;
   width: 28%;
-  height: 530px;
+  height: 560px;
 }
 .game-box>a {
   color: black;
@@ -64,6 +64,7 @@ input {
 .gameSummary {
   min-height: 200px;
   margin-top: 25px;
+  min-width: 100%;
 }
 
 
