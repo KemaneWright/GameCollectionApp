@@ -1,6 +1,9 @@
 .gamesPage {
   overflow: auto;
 }
+.gameSearch {
+  margin-bottom: 10%;
+}
 .game-box {
   margin: 2% 2% 2% 3%;
   border: 1px solid black;
@@ -18,6 +21,13 @@
 }
 .game-detail-img {
   width: 25%;
+}
+.searchForms {
+  width: 80%;
+}
+.searchForms input {
+  width: 20%;
+  float: left
 }
 .gameDetailPage {
   text-align: center;
@@ -53,6 +63,7 @@ input {
 }
 .gameSummary {
   min-height: 200px;
+  margin-top: 25px;
 }
 
 

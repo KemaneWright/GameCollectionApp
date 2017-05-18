@@ -4,7 +4,6 @@ angular.module('gameCollection').controller('gameCtrl', function($scope, $stateP
     $scope.getAllGames = function() {
         gameService.getAllGames().then(function(res) {
             $scope.games = res.data
-            // console.log('games', $scope.games)
         })
     }
     $scope.getAllGames();
@@ -38,15 +37,12 @@ angular.module('gameCollection').controller('gameCtrl', function($scope, $stateP
     gameService.getDetails($stateParams.id).then(function(response) {
         $scope.game = response[0];
         $scope.stateToPost = "http://localhost:2469/#!/" + $state.current.name + "/" + $stateParams.id
-        // console.log($scope.stateToPost)
     })
 
     $scope.addGame = function() {
-        // console.log('Creating new game')
         var game = $scope.game = [];
 
         $scope.game.push($scope.image, $scope.title, $scope.genre, $scope.released, $scope.summary)
-        // console.log('new game', game)
         gameService.addGame(game).then(function() {
             $state.go('games');
         })
@@ -58,25 +54,18 @@ angular.module('gameCollection').controller('gameCtrl', function($scope, $stateP
             $state.go('games');
         })
     }
-})
 
-angular.module('gameCollection').filter('searchFilter', function() {
-  return function(arr, searchGames) {
-
-    if (!searchGames) {
-      return arr;
+  $scope.searchFilter = {
+    genre: null,
+    title: null,
+    dateReleased: null,
+    likes: null
+  }
+    $scope.searchGames = function(searchFilter) {
+      console.log('search ', searchFilter)
+        gameService.searchGames(searchFilter).then(function(res) {
+          console.log('res ', res)
+            $scope.games = res.data
+        })
     }
-
-    searchGames = searchGames.toLowerCase();
-
-    var result = [];
-
-    angular.forEach(arr, function(el) {
-      if (el.title.toLowerCase().indexOf(searchGames) != -1) {
-        result.push(el);
-      }
-    });
-
-    return result;
-  };
 })

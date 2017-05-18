@@ -69,7 +69,7 @@ app.put('/api/user/current', isAuthed, authCtrl.updateCurrent);
 app.get('/api/games', gameCtrl.getAllGames);
 app.get('/api/games/:id', gameCtrl.getGameDetails);
 
-app.get('/api/games', gameCtrl.searchGames)
+app.post('/api/gamez', gameCtrl.searchGames);
 
 app.put('/api/games/like/:id', gameCtrl.like);
 app.put('/api/games/dislike/:id', gameCtrl.dislike);

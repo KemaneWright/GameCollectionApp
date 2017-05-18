@@ -42,12 +42,12 @@ angular.module('gameCollection').controller('friendCtrl', function($scope, $stat
     gameService.getDetails($stateParams.id).then(function(response) {
         $scope.game = response[0];
         $scope.stateToPost = "http://localhost:2469/#!/" + $state.current.name + "/" + $stateParams.id
-        // console.log($scope.stateToPost)
     })
 
     $scope.refresh = function() {
         friendService.getFriendProfile($stateParams.id).then(function(response) {
             $scope.friendsGames = response.games
+            console.log('fGames 2 ', $scope.friendsGames);
         })
     }
 
@@ -55,7 +55,6 @@ angular.module('gameCollection').controller('friendCtrl', function($scope, $stat
         gameService.getDetails($stateParams.id).then(function(response) {
             $scope.game = response[0];
             $scope.stateToPost = "http://localhost:2469/#!/" + $state.current.name + "/" + $stateParams.id
-            // console.log($scope.stateToPost)
         })
     }
 
@@ -72,6 +71,14 @@ angular.module('gameCollection').controller('friendCtrl', function($scope, $stat
             $scope.refresh()
             $scope.detailRefresh()
         })
+    }
+    console.log('params ', $stateParams)
+    $scope.back = function() {
+      // $scope.friend = response.user
+      // $scope.friendsGames = response.games
+      console.log('friend ', $scope.friend)
+      $scope.chicken = $state.go('friendProfile/', {obj:$scope.friend.id})
+      console.log('go ', $scope.chicken)
     }
 
 })

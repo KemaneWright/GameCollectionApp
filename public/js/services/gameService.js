@@ -1,7 +1,10 @@
 angular.module('gameCollection').service('gameService', function($http) {
 
     this.getAllGames = function() {
-        return $http.get('/api/games')
+      return $http({
+        method: 'GET',
+        url: '/api/games',
+      })
     }
 
     this.getDetails = function(id) {
@@ -26,7 +29,6 @@ angular.module('gameCollection').service('gameService', function($http) {
                 summary: game[4]
             }
         })
-        // console.log('data', data)
     }
 
     this.removeGame = function(id) {
@@ -49,11 +51,18 @@ angular.module('gameCollection').service('gameService', function($http) {
       })
     }
 
-    this.searchGames = function() {
+    this.searchGames = function(searchFilter) {
+      console.log('filter ', searchFilter)
       return $http({
-        method: 'GET',
-        url: '/api/games'
-      })
+        method: 'POST',
+        url: '/api/gamez',
+        data: {
+          searchFilter
+        }
+      }).then(function(response) {
+        console.log('resp ', response)
+        return response;
+      });
     }
 
 })

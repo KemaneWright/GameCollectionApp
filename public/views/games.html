@@ -1,11 +1,22 @@
 <div class="gamesPage container">
-    <div class="game-box col-md-3" ng-repeat="game in games | searchFilter: searchGames">
-      <a ui-sref="details({id: '{{game.id}}'})">
-        <img class="game-img" src="{{game.img}}" alt="">
-        <h2>{{game.title}}</h2>
-        <p><b>Genre:</b> {{game.genre}}</p>
-        <p><b>Year released:</b> {{game.datereleased}}</p>
-      </a>
+    <section class="gameSearch">
+        <form ng-submit="searchGames(searchFilter)" class="searchForms">
+            <div class="form-group">
+                <input type="text" ng-model="searchFilter.genre" class="form-control" placeholder="Search By Genre">
+                <input type="text" ng-model="searchFilter.title" class="form-control" placeholder="Search By Title">
+                <input type="text" ng-model="searchFilter.dateReleased" class="form-control" placeholder="Search By Year">
+                <input type="text" ng-model="searchFilter.likes" class="form-control" placeholder="Search By Likes">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </section>
+    <div class="game-box col-md-3" ng-repeat="game in games">
+        <a ui-sref="details({id: '{{game.id}}'})">
+            <img class="game-img" src="{{game.img}}" alt="">
+            <h2>{{game.title}}</h2>
+            <p><b>Genre:</b> {{game.genre}}</p>
+            <p><b>Year released:</b> {{game.datereleased}}</p>
+        </a>
         <h4 class="likes">Likes: {{game.likes}}</h4>
         <h4 class="dislikes">Dislikes: {{game.dislikes}}</h4>
     </div>
